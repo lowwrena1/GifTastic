@@ -1,6 +1,3 @@
-$( document ).ready(function() {
-    console.log( "ready!" );
-
 var Cartoons =["Doug", "Hey Arnold", "Rugrats", ];
 //function for displaying cartoon gifs
 function rendButtons() {
@@ -31,11 +28,8 @@ $("#add-cartoon").on("click", function(event){
     renderButtons();
 });
 //calling the render buttons function at least once to display the intial list of movies
-renderButtons();
-});
-    
 // Event listener for our user button. ***name isn't 
-    $("#user-buttons").on("click", function() {
+    $("#userButtons").on("click", function() {
         // Storing our giphy API URL for a random cat image
         var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=nhQIrl5Nl12UagwScORTRAWbWDrD6zpd";
         // Perfoming an AJAX GET request to our queryURL
@@ -57,3 +51,4 @@ renderButtons();
         $("#images").prepend(cartImage);
       });
     });
+
