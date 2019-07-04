@@ -1,23 +1,28 @@
 <DOCTYPE html!>
-    <html lang="en">
-        <head>
-            <title> GifTastic! </title>
-            <meta charset="utf-8">
+<html lang="en">
+    <head>
+       <title> GifTastic! </title>
+       <meta charset="utf-8">
             
-        </head>
-
-        <body>
-          <div class="container" id="userButtons">
+    </head>
+<body>
+          <!--api key nhQIrl5Nl12UagwScORTRAWbWDrD6zpd-->
+  <div class="container" >
+         <h1>90's Cartoons</h1>
            <!--user created buttons of animals they have submitted-->
-          </div>
+          
           <!--1. create a input form for users to add animals of choice to bring up pics-->
-          <!--float this right and have under userbuttons div in css-->
-         <form id="userForm">
-           <label for="userInput">Search for a movie</label>
-           <input type="text" id="userInput"><br>
+   <div id="userButtons"> </div>
+      <form id="userForm">
+            <label for="userInput">Search For Your Childhood Cartoon!!!</label>
+            <input type="text" id="userInput"><br>
            <!--this button will trigger the ajax call. (where's francis!!-->
-           <input id="findAnimal" type="submit" value="Animal Search">
-         </form>
+            <input id="findCartoon" type="submit" value="cartoonSearch">
+     </form>
+  
+  </div>
+         <!--picture area-->
+         <div id="Cartoon-pics"></div>
          <!-- 2. create submit button to send user input into the buttons at top to bring up gifs.
               3. Send button info to top button area.
               4. clear out input form.
