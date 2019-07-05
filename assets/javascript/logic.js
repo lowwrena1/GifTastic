@@ -1,54 +1,51 @@
-var Cartoons =["Doug", "Hey Arnold", "Rugrats", ];
-//function for displaying cartoon gifs
-function rendButtons() {
-    //deleting the cartoon buttons prior to adding new cartoon buttons
-    $("#buttons-view").empty();
+$(document).ready(function() {
 
-    //looping through array of The cartoons in a variable
-    for (var i =0; i< Cartoons.length; i++){
-        var a =$("<button>");
-        a.addClass("cartoon");
-        a.attr("data-name", cartoons[i]);
-        a.text(movies[i]);
-        // adding the button to the html
-    $("#buttons-view").append(a);
-    }
-}
+  //***api key  var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=nhQIrl5Nl12UagwScORTRAWbWDrD6zpd */
 
-//this function handles events where one button is clicked
-$("#add-cartoon").on("click", function(event){
-    //prevents formm from trying to submit itself.
-    //user can hit enter instead of clicking the button if they want
-    event.preventDefault();
-    //this line will grab the text from the input box
-    var cartoon = $("#cartoon-input").val().trim();
-    //the cartoon is now added to our array
-    cartoons.push(movie);
-    //calling renderButtons which handle the processing of our movie array
-    renderButtons();
-});
-//calling the render buttons function at least once to display the intial list of movies
-// Event listener for our user button. ***name isn't 
-    $("#userButtons").on("click", function() {
-        // Storing our giphy API URL for a random cat image
-        var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=nhQIrl5Nl12UagwScORTRAWbWDrD6zpd";
-        // Perfoming an AJAX GET request to our queryURL
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        });
-   
-      // After the data from the AJAX request comes back
-      then(function(response) {
-        // Saving the image_original_url property
-        var imageUrl = response.data.image_original_url;
-        // Creating and storing an image tag
-        var cartoonImage = $("<img>");
-        // Setting the cartImage src attribute to imageUrl
-        cartoonImage.attr("src", imageUrl);
-        cartoonImage.attr("alt", "cart image");
-        // Prepending the cartImage to the images div
-        $("#images").prepend(cartImage);
-      });
-    });
+  // var Cartoons =["Doug", "Hey Arnold", "Rugrats", ];
+  //function for displaying cartoon gifs
 
+  $(document).on("click", ".cartoon", function() {
+
+    var cartoons = $(this).attr("data-cartoon");
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + cartoons + "&api_key=nhQIrl5Nl12UagwScORTRAWbWDrD6zpd";
+    // Perfoming an AJAX GET request to our queryURL
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
+      .then(function(response) {
+      // promises to get the result of ajax request
+        var results=response.data
+
+        $("#cartoon-pics").empty();
+
+
+        //looping through array of The cartoons in a variable
+        for (var i = 0; i < 10; i++){
+                  
+          var gifDiv=$("<div>");
+          var rating=results[i].rating;
+          var p = $("<p>").text("Rating: " + rating);
+          var cartoonImage = $("<img>");
+          cartoonImage.attr("src", results[i].images.fixed_height_still.url);
+
+          cartoonImage.attr({
+            "data-state": "still",
+            "data-still": results[i].images.fixed_height_still.url,
+            "data-animate": results[i].images.fixed_height.url,
+            class: "gif"
+          });
+          
+          // This gives rating information before the gif image.
+          gifDiv.prepend(p);
+          gifDiv.prepend(cartoonImage);
+
+          $("#cartoon-pics").prepend(gifDiv);
+        }
+
+    })
+      
+  })
+  
+})
