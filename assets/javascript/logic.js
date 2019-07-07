@@ -44,30 +44,34 @@ $(document).ready(function() {
           $("#cartoon-pics").prepend(gifDiv);
         }
 
-    })
+         // Click gif files to change data-state
+        $(".gif").on("click", function () {
+          var state = $(this).attr("data-state");
+          if (state === "still") {
+              $(this).attr("src", $(this).attr("data-animate"));
+              $(this).attr("data-state", "animate");
+          } else {
+              $(this).attr("src", $(this).attr("data-still"));
+              $(this).attr("data-state", "still");
+          }
+    });
       
-  })
+  });
   
 });
-/*
-function renderButtons(){
-  $("buttons").empty();
 
-  for (var i =0; i <cartoons.length; i++){
-    var a = $("<button>");
-    a.addClass("cartoonBtn")
-    a.attr("cartoon-name", Cartoon[i])
-    a.text(Cartoon[i]);
-    $("#buttons").append(a);
-    }
-}
+$("#findCartoon").on("click",function(event){
+  
+  event.preventDefault();
 
-$("#add-c1").on("click", function(event){
-  event.preventDefault()
-  var c1 =$("#input").val().trim();
- Cartoon.push(c1);
- renderButtons();
-});
+  var createBtn =$("<button>");
 
-$(document).on("click", ".cartoonBtn", displaycartoonPics);
-renderButtons(); */
+
+  createBtn.attr("class", "btn-primary btn cartoon");
+  createBtn.attr("data-cartoon", $("#userInput").val());
+  createBtn.text($("#userInput").val());
+  console.log(createBtn);
+
+  $("#userButtons").append(createBtn);
+  });
+})
