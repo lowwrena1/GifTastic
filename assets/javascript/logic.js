@@ -48,4 +48,26 @@ $(document).ready(function() {
       
   })
   
-})
+});
+/*
+function renderButtons(){
+  $("buttons").empty();
+
+  for (var i =0; i <cartoons.length; i++){
+    var a = $("<button>");
+    a.addClass("cartoonBtn")
+    a.attr("cartoon-name", Cartoon[i])
+    a.text(Cartoon[i]);
+    $("#buttons").append(a);
+    }
+}
+
+$("#add-c1").on("click", function(event){
+  event.preventDefault()
+  var c1 =$("#input").val().trim();
+ Cartoon.push(c1);
+ renderButtons();
+});
+
+$(document).on("click", ".cartoonBtn", displaycartoonPics);
+renderButtons(); */
