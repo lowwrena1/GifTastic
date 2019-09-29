@@ -1,2 +1,7 @@
 # GifTastic
-home work 6, working with ajax and api's to create an app which allows the user to create an animal button and to be able to click on the button and have several photos of the animal to appear on the page.
+working with the giphy api and ajax calls I created an app that allows users to create a button for a 90's cartoon. After the user creates a button they can click it and it will pull up 10 still giphs. The user can click on either of the images to animate it and click it again to turn it back to a still image.
+
+
+# Technologies used:
+ * ajax
+ * giphy api 
