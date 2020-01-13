@@ -3,5 +3,8 @@ working with the giphy api and ajax calls I created an app that allows users to 
 
 
 # Technologies used:
+ * html
+ * css
+ * javascript
  * ajax
  * giphy api 
