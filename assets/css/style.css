@@ -5,8 +5,10 @@
 }
 
 #main {
-    color: white;
-    background-color: orange;
+    /*color: white;*/
+    background-image: url("../images/90sjumbo.jpg");
+    width: 90%;
+    height: 40%;
 }
 
 body{
