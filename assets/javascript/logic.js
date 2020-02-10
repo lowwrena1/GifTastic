@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 
         //looping through array of The cartoons in a variable
-        for (var i = 0; i < 10; i++){
+        for (var i = 0; i < 11; i++){
                   
           var gifDiv=$("<div>");
           var rating=results[i].rating;
